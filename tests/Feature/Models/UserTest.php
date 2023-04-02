@@ -14,6 +14,9 @@ class UserTest extends TestCase
      */
     public function test_example(): void
     {
-        
+        $data=User::factory()->make()->toArray();
+        $data['password']='123456';
+        User::create($data);
+        $this->assertDatabaseCount('users', 1);
     }
 }
