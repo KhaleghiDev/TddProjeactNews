@@ -2,21 +2,21 @@
 
 namespace Tests\Feature\Models;
 
-use App\Models\Tag;
+use App\Models\Comment;
 use Illuminate\Foundation\Testing\RefreshDatabase;
 use Illuminate\Foundation\Testing\WithFaker;
 use Tests\TestCase;
 
-class TagTest extends TestCase
+class CommentTest extends TestCase
 {
     use RefreshDatabase;
     /**
      * A basic feature test example.
      */
-    public function test_InsertDatabase(): void
+    public function testInserDatabase(): void
     {
-        $data=Tag::factory()->make()->toArray();
-        Tag::create($data);
-        $this->assertDatabaseHas('tags',$data);
+    $data = Comment::factory()->make()->toArray();
+    Comment::create($data);
+    $this->assertDatabaseHas('comments',$data);
     }
 }
