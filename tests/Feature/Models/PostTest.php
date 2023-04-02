@@ -2,12 +2,12 @@
 
 namespace Tests\Feature\Models;
 
-use App\Models\User;
+use App\Models\Post;
 use Illuminate\Foundation\Testing\RefreshDatabase;
 use Illuminate\Foundation\Testing\WithFaker;
 use Tests\TestCase;
 
-class UserTest extends TestCase
+class PostTest extends TestCase
 {
     use RefreshDatabase;
     /**
@@ -15,9 +15,8 @@ class UserTest extends TestCase
      */
     public function testInsetDatabase(): void
     {
-        $data=User::factory()->make()->toArray();
-        $data['password']='123456';
-        User::create($data);
-        $this->assertDatabaseCount('users', 1);
+     $data =Post::factory()->make()->toArray();
+        Post::create($data);
+        $this->assertDatabaseHas('posts',$data);
     }
 }
