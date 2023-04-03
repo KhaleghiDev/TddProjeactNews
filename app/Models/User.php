@@ -24,6 +24,7 @@ class User extends Authenticatable
         'type',
         'status',
         'otp_code',
+        'email_verified_at'
     ];
 
     /**
@@ -44,4 +45,12 @@ class User extends Authenticatable
     protected $casts = [
         'email_verified_at' => 'datetime',
     ];
+
+
+
+
+
+    public function posts(){
+        return $this->hasMany(Post::class);
+    }
 }
